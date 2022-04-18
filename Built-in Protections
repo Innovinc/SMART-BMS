@@ -1,0 +1,10 @@
+Monitor cell voltage and temperature					
+Estimate state-of-charge (SOC) and state-of-health (SOH)					
+Limit power input and output for thermal and overcharge protection					
+Control the battery charging profile					
+Balance the state-of-charge of individual cells					
+Isolate the battery pack from source and load when necessary					
+Ability to withstand Over charge/Over-discharge					
+Peak power tolerance					
+Reverse Polarity & Short Circuit protection					
+					
