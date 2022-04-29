@@ -67,7 +67,11 @@ else if (htim==& htim17) { Safety_loop(); } else if(htim==&htim16) { if(currentS
 
 else if(htim==&htim17);
 
-{ } while(1) { getlatestADCValues(); updateOLED(); calcSOC(lastReadBattV, currChargeRemaining); } }
+{ } while(1)
+{ getlatestADCValues(); updateOLED(); calcSOC(lastReadBattV, currChargeRemaining);
+
+}
+}
 
 float socByCV(float OCV)
 
