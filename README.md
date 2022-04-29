@@ -11,12 +11,22 @@ Supports external communications UART,RS232,RS485,Bluetooth,CAN
 
 /* Private include -------------------------------------------------------------*/ /USER CODE BEGIN INCLUDES/ #include "sochelper.h"
 
-typedef enum {
+typedef enum
+{
 
 IDLE=0, CHG=1,DCHG=2
-} STATE;
 
-STATE currentState= IDLE; uint8_t currentDchgPct=0; static float lastReadBattV=0; static float lastReadCurr=0 ; static float currentCellSoc=0 ; static float CurrentChargeRemaining=0 ; static const float fullChargeCapacity=2.6 ;
+}
+
+STATE;
+
+STATE currentState= IDLE; 
+uint8_t currentDchgPct=0; 
+static float lastReadBattV=0; 
+static float lastReadCurr=0 ;
+static float currentCellSoc=0 ; 
+static float CurrentChargeRemaining=0 ; 
+static const float fullChargeCapacity=2.6 ;
 
 void getlatestADCValues()       // To get ADC values
 {
@@ -33,7 +43,7 @@ void getlatestADCValues()       // To get ADC values
 Void update0LED()
 {
 	// show current on 0LED
-	char currentString[10];
+char currentString[10];
 sprintf(currentString, "%3f mA", lastReadCurr_mA);
 
 ssd1306_SetCursor(15,37); ssd1306_WriteString("cur", Font_710, White); ssd1306_setCursor(52,37); ssd1306_WriteString(currentString, font_710, White);
@@ -59,22 +69,42 @@ else
 
 /* Private function prototypes -----------------------------------------------*/
 
-static void TIM17_Init(void); static void getlatestADCValues(void); static void updateOLED(void); static void calcSoc(float ocv_V,float chargeRemain_Ah);
+static void TIM17_Init(void);
+static void getlatestADCValues(void); 
+static void updateOLED(void); 
+static void calcSoc(float ocv_V,float chargeRemain_Ah);
 
-Timer elapsed function }
+Timer elapsed function
+}
 
-else if (htim==& htim17) { Safety_loop(); } else if(htim==&htim16) { if(currentState==DCHG||currentState==CHG) { currentChargeRemaining == CalcdeltaAh(1,lastReadCurr/1000.0); } }
+else if 
+
+(htim==& htim17)
+
+{ 
+Safety_loop(); 
+} 
+
+else if(htim==&htim16)
+{ 
+if(currentState==DCHG||currentState==CHG)
+{ 
+currentChargeRemaining == CalcdeltaAh(1,lastReadCurr/1000.0); } 
+}
 
 else if(htim==&htim17);
-
-{ } while(1)
-{ getlatestADCValues(); updateOLED(); calcSOC(lastReadBattV, currChargeRemaining);
+{ 
+} 
+while(1)
+{ 
+getlatestADCValues(); updateOLED(); calcSOC(lastReadBattV, currChargeRemaining);
 
 }
 }
 
 float socByCV(float OCV)
 
-{ return lookupSOCByOCV(ocv,&defaultOcvTable,defaultTableSize,&defaultSocTable);
+{ 
+return lookupSOCByOCV(ocv,&defaultOcvTable,defaultTableSize,&defaultSocTable);
 
 }
