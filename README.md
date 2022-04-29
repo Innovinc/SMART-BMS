@@ -18,10 +18,10 @@ IDLE=0, CHG=1,DCHG=2
 
 STATE currentState= IDLE; uint8_t currentDchgPct=0; static float lastReadBattV=0; static float lastReadCurr=0 ; static float currentCellSoc=0 ; static float CurrentChargeRemaining=0 ; static const float fullChargeCapacity=2.6 ;
 
-void getlatestADCValues()
+void getlatestADCValues()       // To get ADC values
 {
 	float battV_2=0;
-	LTC2990_Trigger( &hi2C1 );
+	LTC2990_Trigger( &hi2C1 );       // For LTC 2990 Display 
 	LTC2990_WaitForConversion(&hi2C1,100);
 
 	//Current reading
